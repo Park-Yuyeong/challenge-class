@@ -31,7 +31,7 @@ function App() {
           setPosition({ y, x: x - 30 });
           setIsJumping(true);
           setTimeout(() => {
-            setPosition({ y, x: x % 80 === 0 ? x : x - (x % 80) });
+            setPosition({ y, x });
             setIsJumping(false);
           }, 100);
         }
