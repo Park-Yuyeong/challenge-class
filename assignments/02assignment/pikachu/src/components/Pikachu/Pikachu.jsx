@@ -1,7 +1,7 @@
 import pikachuImage from "../../assets/pikachu.png";
 import "./Pikachu.css";
 
-const Pikachu = ({ position, isGoRight }) => {
+const Pikachu = ({ position, direction }) => {
   return (
     <div>
       <img
@@ -10,7 +10,7 @@ const Pikachu = ({ position, isGoRight }) => {
         style={{
           top: `${position.x}px`,
           left: `${position.y}px`,
-          transform: `scaleX(${isGoRight})`,
+          transform: `scaleX(${direction})`,
         }}
       />
     </div>

@@ -3,4 +3,5 @@
   height: 80px;
 
   position: absolute;
+  transition: all 0.3s ease-out;
 }
