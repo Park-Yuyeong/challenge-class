@@ -13,7 +13,7 @@ const MemoList = () => {
             key={memo.id}
             id={memo.id}
             content={memo.content}
-            time={memo.time}
+            time={new Date(memo.time)}
             isSelected={memo.isSelected}
           />
         );

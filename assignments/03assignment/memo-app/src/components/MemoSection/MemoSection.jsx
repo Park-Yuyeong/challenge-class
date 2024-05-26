@@ -6,7 +6,7 @@ const MemoSection = () => {
   const dispatch = useDispatch();
   const memos = useSelector((state) => state.memoSlice.memos);
   const currentMemo = useSelector((state) =>
-    memos.find((memo) => memo.isSelected)
+    state.memoSlice.memos.find((memo) => memo.isSelected)
   );
 
   const changeMemoHandler = (e) => {
@@ -17,9 +17,14 @@ const MemoSection = () => {
     dispatch(updateMemo(changedMemos));
   };
 
+  const formatDateString = (time) =>
+    `${time.getFullYear()}년 ${time.getMonth()}월 ${time.getDate()}, ${time
+      .toLocaleTimeString("ko-KR")
+      .slice(0, 7)}`;
+
   return (
     <StArticle>
-      <StDate>{currentMemo.time.toLocaleString().slice(0, 21)}</StDate>
+      <StDate>{formatDateString(new Date(currentMemo.time))}</StDate>
       <StMemoBox onChange={changeMemoHandler} value={currentMemo.content}>
         {currentMemo.content}
       </StMemoBox>

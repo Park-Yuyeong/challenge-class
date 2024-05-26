@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from "uuid";
 
+const saveStateToLocale = (state) =>
+  localStorage.setItem("memo-app", JSON.stringify(state));
+
 const initialState = {
-  memos: [
+  memos: JSON.parse(localStorage.getItem("memo-app")) ?? [
     {
       id: uuid(),
       content: "",
@@ -21,6 +24,7 @@ export const memoSlice = createSlice({
         return { ...memo, isSelected: false };
       });
 
+      saveStateToLocale([action.payload, ...prevMemo]);
       state.memos = [action.payload, ...prevMemo];
     },
     deleteMemo: (state) => {
@@ -33,12 +37,14 @@ export const memoSlice = createSlice({
           return idx === 0 ? { ...memo, isSelected: true } : memo;
         });
 
+        saveStateToLocale(deletedMemo);
         state.memos = deletedMemo;
       } else {
         alert("하나 이상의 메모는 남겨두어야 합니다.");
       }
     },
     updateMemo: (state, action) => {
+      saveStateToLocale(action.payload);
       state.memos = action.payload;
     },
     selectMemo: (state, action) => {
@@ -47,6 +53,7 @@ export const memoSlice = createSlice({
         else return { ...memo, isSelected: false };
       });
 
+      saveStateToLocale(selectedMemo);
       state.memos = selectedMemo;
     },
   },

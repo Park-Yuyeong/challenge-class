@@ -11,7 +11,7 @@ const MemoItem = ({ id, content, time, isSelected }) => {
   return (
     <StItemBox $isSelected={isSelected} onClick={() => clickMemoHandler(id)}>
       <StContentPrev>{content || "새로운 메모"}</StContentPrev>
-      <StTime>{time.toLocaleTimeString("ko-KR")}</StTime>
+      <StTime>{time.toLocaleTimeString("ko-KR").slice(0, 7)}</StTime>
     </StItemBox>
   );
 };
