@@ -6,7 +6,7 @@ const InputForm = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [time, setTime] = useState(500);
+  const [time, setTime] = useState(2000);
 
   return (
     <div className="flex flex-col gap-6 bg-white items-center">
