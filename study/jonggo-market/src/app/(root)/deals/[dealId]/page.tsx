@@ -34,7 +34,7 @@ const DealDetailPage = () => {
         />
       </div>
       <div>
-        <div>{deal.seller?.email}</div>
+        <div>{deal.seller.email}</div>
       </div>
       <h2>{deal.title}</h2>
       <div>{deal.createdAt}</div>
