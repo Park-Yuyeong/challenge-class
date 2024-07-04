@@ -7,8 +7,6 @@ import Link from "next/link";
 const Header = () => {
   const { isInitialized, isLoggedIn } = useAuth();
 
-  console.log(isInitialized);
-
   return (
     <header className="border-b border-black">
       <div className="container mx-auto max-w-[1024px] px-5 h-16 flex items-center">
